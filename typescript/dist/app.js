@@ -1,23 +1,13 @@
-var message = "Help me, Obi-Wan Kenobi. You´re my only hope!";
-console.log(message);
-var episode = 4;
-console.log("This is episode " + 4);
-episode = episode + 1;
-console.log("Next episode is " + episode);
-var favoriteDroitd;
-favoriteDroitd = 'BB-8';
-console.log("My favorite droid is " + favoriteDroitd);
-var isEnoughtToBeatMF = function (parsecs) {
-    return parsecs < 12;
-};
-var distance = 11;
-console.log("Is ".concat(distance, " parsecs enough to beat Millenium Falcon? ").concat(isEnoughtToBeatMF(distance) ? 'YES' : 'NO', " "));
-// lado esquerdo ficam os parâmetros => lado direito a implementação
-var call = function (name) { return console.log("Do you copy, ".concat(name, "?")); };
-call('R2');
-function inc(speed, inc) {
-    if (inc === void 0) { inc = 1; }
-    return speed + inc;
-}
-console.log("inc (5, 1) = ".concat(inc(5, 1)));
-console.log("inc (5) = ".concat(inc(5)));
+"use strict";
+exports.__esModule = true;
+var base_ships_1 = require("./base-ships");
+var starfighters_1 = require("./starfighters");
+var _ = require("lodash");
+console.log(_.pad("Typescript Examples", 40, "="));
+// instanciando uma classe
+var ship = new base_ships_1.Spacecraft("hiperdrive");
+ship.jumpIntoHyperspace();
+var falcon = new starfighters_1.MilleniumFalcon();
+falcon.jumpIntoHyperspace();
+var goodForTheJob = function (ship) { return ship.cargoContainer > 2; };
+console.log("Is falcon good for the job? ".concat(goodForTheJob(falcon) ? 'yes' : 'no'));

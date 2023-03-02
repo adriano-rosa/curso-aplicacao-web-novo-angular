@@ -1,29 +1,16 @@
-let message: string = "Help me, Obi-Wan Kenobi. You´re my only hope!"
-console.log(message)
+import { Spacecraft, Containership } from "./base-ships"
+import { MilleniumFalcon } from "./starfighters"
 
-let episode: number = 4
-console.log("This is episode " + 4)
-episode = episode + 1
-console.log("Next episode is " + episode)
+import * as _ from 'lodash'
+console.log(_.pad("Typescript Examples", 40, "="))
 
-let favoriteDroitd
-favoriteDroitd = 'BB-8'
-console.log("My favorite droid is " + favoriteDroitd)
+// instanciando uma classe
+let ship = new Spacecraft(`hiperdrive`)
+ship.jumpIntoHyperspace()
 
-let isEnoughtToBeatMF = function (parsecs: number): boolean {
-    return parsecs < 12
-}
+let falcon = new MilleniumFalcon()
+falcon.jumpIntoHyperspace()
 
-let distance = 11
-console.log(`Is ${distance} parsecs enough to beat Millenium Falcon? ${isEnoughtToBeatMF(distance) ? 'YES': 'NO'} `)
+let goodForTheJob = ( ship: Containership ) => ship.cargoContainer > 2
 
-// lado esquerdo ficam os parâmetros => lado direito a implementação
-           let call = (name: string) => console.log(`Do you copy, ${name}?`)
-           call('R2')
-
-function inc (speed: number, inc: number = 1 ) : number {
-    return speed + inc
-}
-
-console.log(`inc (5, 1) = ${inc(5, 1)}`)
-console.log(`inc (5) = ${inc(5)}`)
+console.log(`Is falcon good for the job? ${goodForTheJob ( falcon ) ? 'yes': 'no'}`)
